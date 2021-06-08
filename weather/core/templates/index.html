@@ -18,14 +18,17 @@
       <h1>Weather</h1>
     </div>
     <div id="search">
-      <form class="row g-3 text-center">
+      <form action="{% url 'index' %}" method="POST" class="row g-3 text-center">
+        {% csrf_token %}
         <div class="col-auto">
           <label for="city" class="visually-hidden">Cidade</label>
-          <input type="text" name="city" class="form-control" id="city" placeholder="Cidade" required>
+          <input type="text" name="city" class="form-control" id="city" placeholder="Cidade">
+          <p><small>Exemplo: São Paulo, Los Angeles E etc.</small></p>
         </div>
         <div class="col-auto">
           <label for="contry" class="visually-hidden">País</label>
-          <input type="password" name="contry" class="form-control" id="contry" placeholder="País(Opcional)">
+          <input type="password" name="contry" class="form-control" id="contry" placeholder="Código do País(Opcional)">
+          <p><small>Exemplo: BR, USA E etc.</small></p>
         </div>
         <div class="col-auto">
           <button type="submit" class="btn btn-primary mb-3">Buscar</button>
